@@ -1,0 +1,40 @@
+package com.toregeldi.entity.custom;
+
+import com.toregeldi.entity.ai.goal.TimedExplosionGoal;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.goal.LookAtEntityGoal;
+import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
+
+public class CherryBombEntity extends PlantEntity implements ExplodeableMob {
+    private float explosionRadius = 4.0f;
+
+    public CherryBombEntity(EntityType<? extends PlantEntity> entityType, World world) {
+        super(entityType, world);
+    }
+
+    @Override
+    protected void initGoals() {
+        this.goalSelector.add(1, new TimedExplosionGoal(this, 30));
+        this.goalSelector.add(2, new LookAtEntityGoal(this, HostileEntity.class, 20.0f));
+    }
+
+    @Override
+    public void explode() {
+        World world = this.getWorld();
+        if(!world.isClient) {
+            world.createExplosion(this, this.getX(), this.getY(), this.getZ(), this.explosionRadius, World.ExplosionSourceType.MOB);
+            this.dead = true;
+            this.discard();
+        }
+    }
+
+    @Override
+    public boolean canExplosionDestroyBlock(Explosion explosion, BlockView world, BlockPos pos, BlockState state, float explosionPower) {
+        return false;
+    }
+}

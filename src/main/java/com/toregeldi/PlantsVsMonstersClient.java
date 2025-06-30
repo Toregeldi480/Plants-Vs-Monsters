@@ -20,11 +20,15 @@ public class PlantsVsMonstersClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SNOW_PEA, SnowPeaRenderer::new);
         EntityRendererRegistry.register(ModEntities.PEA_BULLET, PeaBulletRenderer::new);
         EntityRendererRegistry.register(ModEntities.SNOW_PEA_BULLET, SnowPeaBulletRenderer::new);
+        EntityRendererRegistry.register(ModEntities.CHERRY_BOMB, CherryBombRenderer::new);
+        EntityRendererRegistry.register(ModEntities.POTATO_MINE, PotatoMineRenderer::new);
 
         EntityModelLayerRegistry.registerModelLayer(PeashooterModel.PEASHOOTER, PeashooterModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(RepeaterModel.REPEATER, RepeaterModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(SnowPeaModel.SNOW_PEA, SnowPeaModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(PeaBulletModel.PEA_BULLET, PeaBulletModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(CherryBombModel.CHERRY_BOMB, CherryBombModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(PotatoMineModel.POTATO_MINE, PotatoMineModel::getTexturedModelData);
     }
 
 

@@ -12,7 +12,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class SnowPeaBulletRenderer extends EntityRenderer<SnowPeaBulletEntity> {
-    private static final Identifier TEXTURE = Identifier.of(PlantsVsMonsters.MOD_ID, "textures/entity/pea_bullet/pea_bullet.png");
+    private static final Identifier TEXTURE = Identifier.of(PlantsVsMonsters.MOD_ID, "textures/entity/pea_bullet/snow_pea_bullet.png");
     public final PeaBulletModel model;
     public SnowPeaBulletRenderer(EntityRendererFactory.Context context) {
         super(context);

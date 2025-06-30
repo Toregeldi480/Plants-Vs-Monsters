@@ -16,52 +16,23 @@ import net.minecraft.util.Identifier;
 public class RepeaterModel extends EntityModel<RepeaterEntity> {
 	public static final EntityModelLayer REPEATER = new EntityModelLayer(Identifier.of(PlantsVsMonsters.MOD_ID, "repeater"), "main");
 
+	private final ModelPart main;
 	private final ModelPart stem;
-//	private final ModelPart upper;
-//	private final ModelPart lower;
 	private final ModelPart head;
-//	private final ModelPart nodes;
-//	private final ModelPart node_1;
-//	private final ModelPart node_2;
-//	private final ModelPart node_3;
-//	private final ModelPart node_4;
-//	private final ModelPart node_5;
-//	private final ModelPart nose;
-	private final ModelPart leafs;
-//	private final ModelPart leaf_1;
-//	private final ModelPart apex_1;
-//	private final ModelPart leaf_2;
-//	private final ModelPart apex_2;
-//	private final ModelPart leaf_3;
-//	private final ModelPart apex_3;
-//	private final ModelPart leaf_4;
-//	private final ModelPart apex_4;
+	private final ModelPart leaves;
+
 	public RepeaterModel(ModelPart root) {
-		this.stem = root.getChild("stem");
-//		this.upper = root.getChild("upper");
-//		this.lower = root.getChild("lower");
-		this.head = root.getChild("head");
-//		this.nodes = root.getChild("nodes");
-//		this.node_1 = root.getChild("node_1");
-//		this.node_2 = root.getChild("node_2");
-//		this.node_3 = root.getChild("node_3");
-//		this.node_4 = root.getChild("node_4");
-//		this.node_5 = root.getChild("node_5");
-//		this.nose = root.getChild("nose");
-		this.leafs = root.getChild("leafs");
-//		this.leaf_1 = root.getChild("leaf_1");
-//		this.apex_1 = root.getChild("apex_1");
-//		this.leaf_2 = root.getChild("leaf_2");
-//		this.apex_2 = root.getChild("apex_2");
-//		this.leaf_3 = root.getChild("leaf_3");
-//		this.apex_3 = root.getChild("apex_3");
-//		this.leaf_4 = root.getChild("leaf_4");
-//		this.apex_4 = root.getChild("apex_4");
+		this.main = root.getChild("main");
+		this.stem = main.getChild("stem");
+		this.head = main.getChild("head");
+		this.leaves = main.getChild("leaves");
 	}
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData stem = modelPartData.addChild("stem", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+		ModelPartData main = modelPartData.addChild("main", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+
+		ModelPartData stem = main.addChild("stem", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		ModelPartData upper = stem.addChild("upper", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -7.0F, 1.0F));
 
@@ -71,9 +42,9 @@ public class RepeaterModel extends EntityModel<RepeaterEntity> {
 
 		ModelPartData cube_r2 = lower.addChild("cube_r2", ModelPartBuilder.create().uv(16, 32).cuboid(-1.0F, -7.0F, -1.0F, 2.0F, 7.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.1745F, 0.0F, 0.0F));
 
-		ModelPartData head = modelPartData.addChild("head", ModelPartBuilder.create().uv(0, 24).cuboid(-3.0F, -8.0F, -4.0F, 6.0F, 1.0F, 7.0F, new Dilation(0.0F))
-		.uv(0, 16).cuboid(-3.0F, 0.0F, -4.0F, 6.0F, 1.0F, 7.0F, new Dilation(0.0F))
-		.uv(0, 0).cuboid(-4.0F, -7.0F, -5.0F, 8.0F, 7.0F, 9.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 9.0F, 1.0F));
+		ModelPartData head = main.addChild("head", ModelPartBuilder.create().uv(0, 24).cuboid(-3.0F, -8.0F, -4.0F, 6.0F, 1.0F, 7.0F, new Dilation(0.0F))
+				.uv(0, 16).cuboid(-3.0F, 0.0F, -4.0F, 6.0F, 1.0F, 7.0F, new Dilation(0.0F))
+				.uv(0, 0).cuboid(-4.0F, -7.0F, -5.0F, 8.0F, 7.0F, 9.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -15.0F, 1.0F));
 
 		ModelPartData nodes = head.addChild("nodes", ModelPartBuilder.create(), ModelTransform.pivot(-4.0F, -3.0F, 4.0F));
 
@@ -118,16 +89,16 @@ public class RepeaterModel extends EntityModel<RepeaterEntity> {
 		ModelPartData cube_r17 = node_5.addChild("cube_r17", ModelPartBuilder.create().uv(14, 42).cuboid(-0.9272F, -1.0746F, -0.7187F, 2.0F, 1.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-2.0F, 0.0F, 1.0F, 0.0F, 1.0472F, 0.3054F));
 
 		ModelPartData nose = head.addChild("nose", ModelPartBuilder.create().uv(26, 16).cuboid(1.0F, -2.0F, 1.0F, 4.0F, 4.0F, 5.0F, new Dilation(0.0F))
-		.uv(34, 14).cuboid(1.0F, -2.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(42, 9).cuboid(1.0F, 1.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(-3.0F, -2.0F, -11.0F));
+				.uv(34, 14).cuboid(1.0F, -2.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(42, 9).cuboid(1.0F, 1.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(-3.0F, -2.0F, -11.0F));
 
 		ModelPartData cube_r18 = nose.addChild("cube_r18", ModelPartBuilder.create().uv(42, 25).cuboid(-2.0F, -1.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 1.5708F));
 
 		ModelPartData cube_r19 = nose.addChild("cube_r19", ModelPartBuilder.create().uv(42, 11).cuboid(-2.0F, -1.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(4.0F, 0.0F, 0.0F, 0.0F, 0.0F, 1.5708F));
 
-		ModelPartData leafs = modelPartData.addChild("leafs", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+		ModelPartData leaves = main.addChild("leaves", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
-		ModelPartData leaf_1 = leafs.addChild("leaf_1", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		ModelPartData leaf_1 = leaves.addChild("leaf_1", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		ModelPartData cube_r20 = leaf_1.addChild("cube_r20", ModelPartBuilder.create().uv(26, 25).cuboid(-3.0F, -1.0F, -1.0F, 4.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(-4.0F, 0.0F, 3.0F, -0.09F, 0.9853F, -0.1026F));
 
@@ -137,7 +108,7 @@ public class RepeaterModel extends EntityModel<RepeaterEntity> {
 
 		ModelPartData cube_r22 = apex_1.addChild("cube_r22", ModelPartBuilder.create().uv(36, 35).cuboid(-2.0F, -1.0F, -2.0F, 3.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.3142F, 1.0042F, 0.3656F));
 
-		ModelPartData leaf_2 = leafs.addChild("leaf_2", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 1.7017F, 0.0F));
+		ModelPartData leaf_2 = leaves.addChild("leaf_2", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 1.7017F, 0.0F));
 
 		ModelPartData cube_r23 = leaf_2.addChild("cube_r23", ModelPartBuilder.create().uv(26, 30).cuboid(-3.0F, -1.0F, -1.0F, 4.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(-4.0F, 0.0F, 3.0F, -0.09F, 0.9853F, -0.1026F));
 
@@ -147,7 +118,7 @@ public class RepeaterModel extends EntityModel<RepeaterEntity> {
 
 		ModelPartData cube_r25 = apex_2.addChild("cube_r25", ModelPartBuilder.create().uv(24, 39).cuboid(-2.0F, -1.0F, -2.0F, 3.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.3142F, 1.0042F, 0.3656F));
 
-		ModelPartData leaf_3 = leafs.addChild("leaf_3", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 2.9671F, 0.0F));
+		ModelPartData leaf_3 = leaves.addChild("leaf_3", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 2.9671F, 0.0F));
 
 		ModelPartData cube_r26 = leaf_3.addChild("cube_r26", ModelPartBuilder.create().uv(0, 32).cuboid(-3.0F, -1.0F, -1.0F, 4.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(-4.0F, 0.0F, 3.0F, -0.09F, 0.9853F, -0.1026F));
 
@@ -157,7 +128,7 @@ public class RepeaterModel extends EntityModel<RepeaterEntity> {
 
 		ModelPartData cube_r28 = apex_3.addChild("cube_r28", ModelPartBuilder.create().uv(0, 41).cuboid(-2.0F, -1.0F, -2.0F, 3.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.3142F, 1.0042F, 0.3656F));
 
-		ModelPartData leaf_4 = leafs.addChild("leaf_4", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, -1.5272F, 0.0F));
+		ModelPartData leaf_4 = leaves.addChild("leaf_4", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, -1.5272F, 0.0F));
 
 		ModelPartData cube_r29 = leaf_4.addChild("cube_r29", ModelPartBuilder.create().uv(34, 0).cuboid(-3.0F, -1.0F, -1.0F, 4.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(-4.0F, 0.0F, 3.0F, -0.09F, 0.9853F, -0.1026F));
 
@@ -173,8 +144,6 @@ public class RepeaterModel extends EntityModel<RepeaterEntity> {
 	}
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-		stem.render(matrices, vertexConsumer, light, overlay, color);
-		head.render(matrices, vertexConsumer, light, overlay, color);
-		leafs.render(matrices, vertexConsumer, light, overlay, color);
+		main.render(matrices, vertexConsumer, light, overlay, color);
 	}
 }

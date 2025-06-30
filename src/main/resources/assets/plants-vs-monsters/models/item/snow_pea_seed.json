@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "plants-vs-monsters:item/snow_pea_card"
+    "layer0": "plants-vs-monsters:item/snow_pea_seed"
   }
 }

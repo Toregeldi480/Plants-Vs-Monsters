@@ -8,51 +8,30 @@ import com.toregeldi.PlantsVsMonsters;
 import com.toregeldi.entity.custom.PeashooterEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.animation.AnimationHelper;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.client.render.entity.model.*;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class PeashooterModel extends EntityModel<PeashooterEntity> {
 	public static final EntityModelLayer PEASHOOTER = new EntityModelLayer(Identifier.of(PlantsVsMonsters.MOD_ID, "peashooter"), "main");
 
+	private final ModelPart main;
 	private final ModelPart stem;
-//	private final ModelPart upper;
-//	private final ModelPart lower;
 	private final ModelPart head;
-//	private final ModelPart node;
-//	private final ModelPart nose;
-	private final ModelPart leafs;
-//	private final ModelPart leaf_1;
-//	private final ModelPart apex_1;
-//	private final ModelPart leaf_2;
-//	private final ModelPart apex_2;
-//	private final ModelPart leaf_3;
-//	private final ModelPart apex_3;
-//	private final ModelPart leaf_4;
-//	private final ModelPart apex_4;
+	private final ModelPart leaves;
+
 	public PeashooterModel(ModelPart root) {
-		this.stem = root.getChild("stem");
-//		this.upper = stem.getChild("upper");
-//		this.lower = stem.getChild("lower");
-		this.head = root.getChild("head");
-//		this.node = head.getChild("node");
-//		this.nose = head.getChild("nose");
-		this.leafs = root.getChild("leafs");
-//		this.leaf_1 = leafs.getChild("leaf_1");
-//		this.apex_1 = leaf_1.getChild("apex_1");
-//		this.leaf_2 = leafs.getChild("leaf_2");
-//		this.apex_2 = leaf_2.getChild("apex_2");
-//		this.leaf_3 = leafs.getChild("leaf_3");
-//		this.apex_3 = leaf_3.getChild("apex_3");
-//		this.leaf_4 = leafs.getChild("leaf_4");
-//		this.apex_4 = leaf_4.getChild("apex_4");
+		this.main = root.getChild("main");
+		this.stem = main.getChild("stem");
+		this.head = main.getChild("head");
+		this.leaves = main.getChild("leaves");
 	}
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData stem = modelPartData.addChild("stem", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+		ModelPartData main = modelPartData.addChild("main", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+
+		ModelPartData stem = main.addChild("stem", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		ModelPartData upper = stem.addChild("upper", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -7.0F, 1.0F));
 
@@ -62,25 +41,25 @@ public class PeashooterModel extends EntityModel<PeashooterEntity> {
 
 		ModelPartData cube_r2 = lower.addChild("cube_r2", ModelPartBuilder.create().uv(16, 32).cuboid(-1.0F, -7.0F, -1.0F, 2.0F, 7.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.1745F, 0.0F, 0.0F));
 
-		ModelPartData head = modelPartData.addChild("head", ModelPartBuilder.create().uv(0, 24).cuboid(-3.0F, -8.0F, -4.0F, 6.0F, 1.0F, 7.0F, new Dilation(0.0F))
-		.uv(0, 16).cuboid(-3.0F, 0.0F, -4.0F, 6.0F, 1.0F, 7.0F, new Dilation(0.0F))
-		.uv(0, 0).cuboid(-4.0F, -7.0F, -5.0F, 8.0F, 7.0F, 9.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 9.0F, 1.0F));
-
-		ModelPartData node = head.addChild("node", ModelPartBuilder.create().uv(42, 30).cuboid(-1.0F, -0.9838F, -0.1793F, 2.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -3.0F, 4.0F));
-
-		ModelPartData cube_r3 = node.addChild("cube_r3", ModelPartBuilder.create().uv(42, 27).cuboid(-1.0F, 1.0F, -4.0F, 2.0F, 1.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0162F, 4.8207F, -0.4363F, 0.0F, 0.0F));
+		ModelPartData head = main.addChild("head", ModelPartBuilder.create().uv(0, 24).cuboid(-3.0F, -8.0F, -4.0F, 6.0F, 1.0F, 7.0F, new Dilation(0.0F))
+				.uv(0, 16).cuboid(-3.0F, 0.0F, -4.0F, 6.0F, 1.0F, 7.0F, new Dilation(0.0F))
+				.uv(0, 0).cuboid(-4.0F, -7.0F, -5.0F, 8.0F, 7.0F, 9.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -15.0F, 1.0F));
 
 		ModelPartData nose = head.addChild("nose", ModelPartBuilder.create().uv(26, 16).cuboid(1.0F, -2.0F, 1.0F, 4.0F, 4.0F, 5.0F, new Dilation(0.0F))
-		.uv(34, 14).cuboid(1.0F, -2.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(42, 9).cuboid(1.0F, 1.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(-3.0F, -2.0F, -11.0F));
+				.uv(34, 14).cuboid(1.0F, -2.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(42, 9).cuboid(1.0F, 1.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(-3.0F, -2.0F, -11.0F));
 
-		ModelPartData cube_r4 = nose.addChild("cube_r4", ModelPartBuilder.create().uv(42, 25).cuboid(-2.0F, -1.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 1.5708F));
+		ModelPartData cube_r3 = nose.addChild("cube_r3", ModelPartBuilder.create().uv(42, 25).cuboid(-2.0F, -1.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 1.5708F));
 
-		ModelPartData cube_r5 = nose.addChild("cube_r5", ModelPartBuilder.create().uv(42, 11).cuboid(-2.0F, -1.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(4.0F, 0.0F, 0.0F, 0.0F, 0.0F, 1.5708F));
+		ModelPartData cube_r4 = nose.addChild("cube_r4", ModelPartBuilder.create().uv(42, 11).cuboid(-2.0F, -1.5F, 0.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(4.0F, 0.0F, 0.0F, 0.0F, 0.0F, 1.5708F));
 
-		ModelPartData leafs = modelPartData.addChild("leafs", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+		ModelPartData node = head.addChild("node", ModelPartBuilder.create().uv(1, 1).cuboid(-1.0F, -1.0F, -0.3F, 2.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -3.0F, 4.0F));
 
-		ModelPartData leaf_1 = leafs.addChild("leaf_1", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		ModelPartData cube_r5 = node.addChild("cube_r5", ModelPartBuilder.create().uv(0, 0).cuboid(-1.0F, -2.0F, -2.0F, 2.0F, 1.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 1.5F, 2.0F, -0.2967F, 0.0F, 0.0F));
+
+		ModelPartData leaves = main.addChild("leaves", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		ModelPartData leaf_1 = leaves.addChild("leaf_1", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		ModelPartData cube_r6 = leaf_1.addChild("cube_r6", ModelPartBuilder.create().uv(26, 25).cuboid(-3.0F, -1.0F, -1.0F, 4.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(-4.0F, 0.0F, 3.0F, -0.09F, 0.9853F, -0.1026F));
 
@@ -90,7 +69,7 @@ public class PeashooterModel extends EntityModel<PeashooterEntity> {
 
 		ModelPartData cube_r8 = apex_1.addChild("cube_r8", ModelPartBuilder.create().uv(36, 35).cuboid(-2.0F, -1.0F, -2.0F, 3.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.3142F, 1.0042F, 0.3656F));
 
-		ModelPartData leaf_2 = leafs.addChild("leaf_2", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 1.7017F, 0.0F));
+		ModelPartData leaf_2 = leaves.addChild("leaf_2", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 1.7017F, 0.0F));
 
 		ModelPartData cube_r9 = leaf_2.addChild("cube_r9", ModelPartBuilder.create().uv(26, 30).cuboid(-3.0F, -1.0F, -1.0F, 4.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(-4.0F, 0.0F, 3.0F, -0.09F, 0.9853F, -0.1026F));
 
@@ -100,7 +79,7 @@ public class PeashooterModel extends EntityModel<PeashooterEntity> {
 
 		ModelPartData cube_r11 = apex_2.addChild("cube_r11", ModelPartBuilder.create().uv(24, 39).cuboid(-2.0F, -1.0F, -2.0F, 3.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.3142F, 1.0042F, 0.3656F));
 
-		ModelPartData leaf_3 = leafs.addChild("leaf_3", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 2.9671F, 0.0F));
+		ModelPartData leaf_3 = leaves.addChild("leaf_3", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 2.9671F, 0.0F));
 
 		ModelPartData cube_r12 = leaf_3.addChild("cube_r12", ModelPartBuilder.create().uv(0, 32).cuboid(-3.0F, -1.0F, -1.0F, 4.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(-4.0F, 0.0F, 3.0F, -0.09F, 0.9853F, -0.1026F));
 
@@ -110,7 +89,7 @@ public class PeashooterModel extends EntityModel<PeashooterEntity> {
 
 		ModelPartData cube_r14 = apex_3.addChild("cube_r14", ModelPartBuilder.create().uv(0, 41).cuboid(-2.0F, -1.0F, -2.0F, 3.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.3142F, 1.0042F, 0.3656F));
 
-		ModelPartData leaf_4 = leafs.addChild("leaf_4", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, -1.5272F, 0.0F));
+		ModelPartData leaf_4 = leaves.addChild("leaf_4", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, -1.5272F, 0.0F));
 
 		ModelPartData cube_r15 = leaf_4.addChild("cube_r15", ModelPartBuilder.create().uv(34, 0).cuboid(-3.0F, -1.0F, -1.0F, 4.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(-4.0F, 0.0F, 3.0F, -0.09F, 0.9853F, -0.1026F));
 
@@ -124,10 +103,9 @@ public class PeashooterModel extends EntityModel<PeashooterEntity> {
 	@Override
 	public void setAngles(PeashooterEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 	}
+
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-		stem.render(matrices, vertexConsumer, light, overlay, color);
-		head.render(matrices, vertexConsumer, light, overlay, color);
-		leafs.render(matrices, vertexConsumer, light, overlay, color);
+		main.render(matrices, vertexConsumer, light, overlay, color);
 	}
 }

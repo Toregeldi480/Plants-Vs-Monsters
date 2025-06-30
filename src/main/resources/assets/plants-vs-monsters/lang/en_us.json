@@ -1,11 +1,13 @@
 {
-  "item.plants-vs-monsters.peashooter_card": "Peashooter Card",
-  "item.plants-vs-monsters.repeater_card": "Repeater Card",
-  "item.plants-vs-monsters.snow_pea_card": "Snow Pea Card",
+  "item.plants-vs-monsters.peashooter_seed": "Peashooter Seed",
+  "item.plants-vs-monsters.repeater_seed": "Repeater Seed",
+  "item.plants-vs-monsters.snow_pea_seed": "Snow Pea Seed",
+  "item.plants-vs-monsters.cherry_bomb_seed": "Cherry Bomb Seed",
 
   "entity.plants-vs-monsters.peashooter": "Peashooter",
   "entity.plants-vs-monsters.repeater": "Repeater",
   "entity.plants-vs-monsters.snow_pea": "Snow Pea",
+  "entity.plants-vs-monsters.cherry_bomb": "Cherry Bomb",
 
   "entity.plants-vs-monsters.pea_bullet": "Pea Bullet",
   "entity.plants-vs-monsters.snow_pea_bullet": "Snow Pea Bullet"

@@ -8,6 +8,8 @@ public class PeashooterLookControl extends LookControl {
         super(entity);
     }
 
+    @Override
     protected void clampHeadYaw() {
+        super.clampHeadYaw();
     }
 }

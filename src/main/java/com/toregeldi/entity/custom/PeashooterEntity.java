@@ -2,10 +2,12 @@ package com.toregeldi.entity.custom;
 
 import com.toregeldi.entity.ai.goal.ShootPeaGoal;
 import com.toregeldi.entity.custom.projectile.PeaBulletEntity;
+import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.mob.GhastEntity;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
@@ -16,8 +18,8 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class PeashooterEntity extends GolemEntity implements RangedAttackMob {
-    public PeashooterEntity(EntityType<? extends GolemEntity> entityType, World world) {
+public class PeashooterEntity extends PlantEntity implements RangedAttackMob {
+    public PeashooterEntity(EntityType<? extends PlantEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -33,22 +35,6 @@ public class PeashooterEntity extends GolemEntity implements RangedAttackMob {
     }
 
     @Override
-    public void travel(Vec3d movementInput) {
-        if (this.isOnGround()) {
-            this.setVelocity(this.getVelocity().multiply(0, 1, 0));
-        }
-        super.travel(movementInput);
-    }
-
-    public boolean isCollidable() {
-        return true;
-    }
-
-    @Override
-    public boolean isPushedByFluids() {
-        return false;
-    }
-
     public void shootAt(LivingEntity target, float pullProgress) {
         PeaBulletEntity bullet = new PeaBulletEntity(this.getWorld(), this);
         double d = target.getEyeY() - this.getEyeY();

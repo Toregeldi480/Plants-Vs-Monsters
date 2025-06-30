@@ -24,19 +24,23 @@ public class ShootPeaGoal extends Goal {
         this.setControls(EnumSet.of(Control.MOVE, Control.LOOK));
     }
 
+    @Override
     public boolean canStart() {
         LivingEntity livingEntity = this.mob.getTarget();
         return livingEntity != null && livingEntity.isAlive() && this.mob.canTarget(livingEntity);
     }
 
+    @Override
     public void start() {
         this.peasFired = 0;
     }
 
+    @Override
     public boolean shouldRunEveryTick() {
         return true;
     }
 
+    @Override
     public void tick() {
         --this.fireCooldown;
         LivingEntity livingEntity = this.mob.getTarget();

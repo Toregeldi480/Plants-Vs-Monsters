@@ -1,24 +1,19 @@
 package com.toregeldi.entity.custom.projectile;
 
 import com.toregeldi.entity.ModEntities;
-import com.toregeldi.entity.custom.PeashooterEntity;
+import com.toregeldi.entity.custom.PlantEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.VariantHolder;
 import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 
 public class PeaBulletEntity extends SnowballEntity {
-    private int timeTraveled = 0;
-    private Direction direction;
-
     public PeaBulletEntity(EntityType<? extends SnowballEntity> entityType, World world) {
         super(entityType, world);
         this.setNoGravity(true);
@@ -48,9 +43,6 @@ public class PeaBulletEntity extends SnowballEntity {
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
-        if(entity instanceof PeashooterEntity) {
-            return;
-        }
         entity.damage(this.getDamageSources().thrown(this, this.getOwner()), 3.0f);
         super.onEntityHit(entityHitResult);
     }
@@ -59,7 +51,7 @@ public class PeaBulletEntity extends SnowballEntity {
     protected void onCollision(HitResult hitResult) {
         if(hitResult.getType() == HitResult.Type.ENTITY) {
             EntityHitResult entityHit = (EntityHitResult) hitResult;
-            if(entityHit.getEntity() instanceof PeashooterEntity) {
+            if(entityHit.getEntity() instanceof PlantEntity) {
                 return;
             }
         }
@@ -70,8 +62,9 @@ public class PeaBulletEntity extends SnowballEntity {
         super.onCollision(hitResult);
     }
 
+    @Override
     public void checkDespawn() {
-        if(timeTraveled >= 30 || this.getWorld().getDifficulty() == Difficulty.PEACEFUL) {
+        if(this.age >= 30 || this.getWorld().getDifficulty() == Difficulty.PEACEFUL) {
             this.remove(RemovalReason.DISCARDED);
         }
     }
@@ -82,8 +75,6 @@ public class PeaBulletEntity extends SnowballEntity {
 
         Vec3d velocity = this.getVelocity();
         this.setVelocity(velocity);
-
-        timeTraveled++;
 
         checkDespawn();
     }
