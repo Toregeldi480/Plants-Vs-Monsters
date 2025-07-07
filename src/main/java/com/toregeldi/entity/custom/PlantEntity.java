@@ -3,7 +3,10 @@ package com.toregeldi.entity.custom;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -22,6 +25,7 @@ public abstract class PlantEntity extends GolemEntity {
 
     public static final HashSet<Block> ALLOWED_BLOCKS = new HashSet<>(List.of(
             Blocks.GRASS_BLOCK,
+            Blocks.DIRT,
             Blocks.LILY_PAD
     ));
 
@@ -31,7 +35,7 @@ public abstract class PlantEntity extends GolemEntity {
 
     @Override
     public void travel(Vec3d movementInput) {
-        if (this.isOnGround()) {
+        if(this.isOnGround()) {
             this.setVelocity(this.getVelocity().multiply(0, 1, 0));
         }
         super.travel(movementInput);
@@ -80,6 +84,7 @@ public abstract class PlantEntity extends GolemEntity {
         ItemStack itemStack = player.getStackInHand(hand);
         if(itemStack.getItem() instanceof ShovelItem) {
             this.playSound(SoundEvents.BLOCK_GRASS_BREAK);
+            itemStack.damage(1, player, getSlotForHand(hand));
             this.discard();
         }
         return ActionResult.PASS;
@@ -88,5 +93,12 @@ public abstract class PlantEntity extends GolemEntity {
     @Override
     public int getMaxHeadRotation() {
         return 0;
+    }
+
+    public static DefaultAttributeContainer.Builder createPlantAttributes() {
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE, 1.0f)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.0f)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 0.0f);
     }
 }

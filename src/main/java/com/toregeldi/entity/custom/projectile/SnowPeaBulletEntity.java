@@ -9,14 +9,10 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 
 public class SnowPeaBulletEntity extends PeaBulletEntity {
-    private int timeTraveled = 0;
-
     public SnowPeaBulletEntity(EntityType<? extends SnowballEntity> entityType, World world) {
         super(entityType, world);
         this.setNoGravity(true);
@@ -36,7 +32,7 @@ public class SnowPeaBulletEntity extends PeaBulletEntity {
 
     @Override
     public void handleStatus(byte status) {
-        if (status == 3) {
+        if(status == 3) {
             for(int i = 0; i < 8; ++i) {
                 this.getWorld().addParticle(ParticleTypes.SNOWFLAKE, this.getX(), this.getY(), this.getZ(),0, 0, 0);
             }
@@ -46,7 +42,7 @@ public class SnowPeaBulletEntity extends PeaBulletEntity {
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         LivingEntity entity = (LivingEntity) entityHitResult.getEntity();
-        if (entity instanceof PeashooterEntity) {
+        if(entity instanceof PeashooterEntity) {
             return;
         }
         entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60));

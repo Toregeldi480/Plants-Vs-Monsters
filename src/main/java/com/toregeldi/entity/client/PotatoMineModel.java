@@ -18,6 +18,8 @@ public class PotatoMineModel extends EntityModel<PotatoMineEntity> {
 
 	private final ModelPart main;
 
+	private boolean isReadyToExplode;
+
 	public PotatoMineModel(ModelPart root) {
 		this.main = root.getChild("main");
 	}
@@ -43,9 +45,9 @@ public class PotatoMineModel extends EntityModel<PotatoMineEntity> {
 	@Override
 	public void setAngles(PotatoMineEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		main.resetTransform();
-		main.pivotY += 4.0f;
-		if(entity.readyToExplode <= 0) {
-			main.pivotY -= 4.0f;
+		this.isReadyToExplode = entity.isReadyToExplode();
+		if(!isReadyToExplode) {
+			main.pivotY += 4.0f;
 		}
 	}
 	@Override

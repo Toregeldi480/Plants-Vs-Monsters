@@ -11,8 +11,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
 public class CherryBombEntity extends PlantEntity implements ExplodeableMob {
-    private float explosionRadius = 4.0f;
-
     public CherryBombEntity(EntityType<? extends PlantEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -27,7 +25,7 @@ public class CherryBombEntity extends PlantEntity implements ExplodeableMob {
     public void explode() {
         World world = this.getWorld();
         if(!world.isClient) {
-            world.createExplosion(this, this.getX(), this.getY(), this.getZ(), this.explosionRadius, World.ExplosionSourceType.MOB);
+            world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 4.0f, World.ExplosionSourceType.MOB);
             this.dead = true;
             this.discard();
         }

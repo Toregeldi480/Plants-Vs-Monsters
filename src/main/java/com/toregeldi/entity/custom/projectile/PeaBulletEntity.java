@@ -2,9 +2,11 @@ package com.toregeldi.entity.custom.projectile;
 
 import com.toregeldi.entity.ModEntities;
 import com.toregeldi.entity.custom.PlantEntity;
+import it.unimi.dsi.fastutil.doubles.DoubleDoubleImmutablePair;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
@@ -33,7 +35,7 @@ public class PeaBulletEntity extends SnowballEntity {
 
     @Override
     public void handleStatus(byte status) {
-        if (status == 3) {
+        if(status == 3) {
             for(int i = 0; i < 8; ++i) {
                 this.getWorld().addParticle(ParticleTypes.ITEM_SLIME, this.getX(), this.getY(), this.getZ(), 0, 0, 0);
             }
@@ -77,5 +79,10 @@ public class PeaBulletEntity extends SnowballEntity {
         this.setVelocity(velocity);
 
         checkDespawn();
+    }
+
+    @Override
+    public DoubleDoubleImmutablePair getKnockback(LivingEntity target, DamageSource source) {
+        return DoubleDoubleImmutablePair.of(0, 0);
     }
 }

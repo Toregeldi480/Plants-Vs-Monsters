@@ -12,7 +12,6 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
 
 public class CherryBombModel extends EntityModel<CherryBombEntity> {
 	public static final EntityModelLayer CHERRY_BOMB = new EntityModelLayer(Identifier.of(PlantsVsMonsters.MOD_ID, "cherry_bomb"), "main");

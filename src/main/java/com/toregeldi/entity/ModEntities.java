@@ -5,11 +5,8 @@ import com.toregeldi.entity.custom.*;
 import com.toregeldi.entity.custom.projectile.PeaBulletEntity;
 import com.toregeldi.entity.custom.projectile.SnowPeaBulletEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAttachments;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -58,13 +55,19 @@ public class ModEntities {
             EntityType.Builder.create(PotatoMineEntity::new, SpawnGroup.CREATURE)
                     .dimensions(1.0f, 0.4f).build("potato_mine")
     );
+    public static final EntityType<SunOrbEntity> SUN_ORB = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(PlantsVsMonsters.MOD_ID, "sun_orb"),
+            EntityType.Builder.<SunOrbEntity>create(SunOrbEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.5f, 0.5f).build("sun_orb")
+    );
 
     public static void registerEntities() {
         PlantsVsMonsters.LOGGER.info("Registering entities for " + PlantsVsMonsters.MOD_ID);
-        FabricDefaultAttributeRegistry.register(ModEntities.PEASHOOTER, PeashooterEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
-        FabricDefaultAttributeRegistry.register(ModEntities.REPEATER, RepeaterEntity.createMobAttributes());
-        FabricDefaultAttributeRegistry.register(ModEntities.SNOW_PEA, SnowPeaEntity.createMobAttributes());
-        FabricDefaultAttributeRegistry.register(ModEntities.CHERRY_BOMB, CherryBombEntity.createMobAttributes());
-        FabricDefaultAttributeRegistry.register(ModEntities.POTATO_MINE, CherryBombEntity.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.PEASHOOTER, PeashooterEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
+        FabricDefaultAttributeRegistry.register(ModEntities.REPEATER, RepeaterEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
+        FabricDefaultAttributeRegistry.register(ModEntities.SNOW_PEA, SnowPeaEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
+        FabricDefaultAttributeRegistry.register(ModEntities.CHERRY_BOMB, CherryBombEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 1000.0f));
+        FabricDefaultAttributeRegistry.register(ModEntities.POTATO_MINE, CherryBombEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
     }
 }
