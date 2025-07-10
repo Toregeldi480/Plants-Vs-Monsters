@@ -34,6 +34,11 @@ public class ModItems {
             Identifier.of(PlantsVsMonsters.MOD_ID, "potato_mine_seed"),
             new SeedItem(ModEntities.POTATO_MINE, new Item.Settings(), 600, 25)
     );
+    public static final Item WALL_NUT_SEED = Registry.register(
+            Registries.ITEM,
+            Identifier.of(PlantsVsMonsters.MOD_ID, "wall_nut_seed"),
+            new SeedItem(ModEntities.WALL_NUT, new Item.Settings(), 600, 50)
+    );
 
     public static void registerItems() {
         PlantsVsMonsters.LOGGER.info("Registering items for " + PlantsVsMonsters.MOD_ID);

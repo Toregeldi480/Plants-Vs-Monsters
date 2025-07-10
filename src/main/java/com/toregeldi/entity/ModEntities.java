@@ -55,6 +55,12 @@ public class ModEntities {
             EntityType.Builder.create(PotatoMineEntity::new, SpawnGroup.CREATURE)
                     .dimensions(1.0f, 0.4f).build("potato_mine")
     );
+    public static final EntityType<WallNutEntity> WALL_NUT = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(PlantsVsMonsters.MOD_ID, "wall_nut"),
+            EntityType.Builder.create(WallNutEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(1.0f, 1.1f).build("wall_nut")
+    );
     public static final EntityType<SunOrbEntity> SUN_ORB = Registry.register(
             Registries.ENTITY_TYPE,
             Identifier.of(PlantsVsMonsters.MOD_ID, "sun_orb"),
@@ -68,6 +74,7 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(ModEntities.REPEATER, RepeaterEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
         FabricDefaultAttributeRegistry.register(ModEntities.SNOW_PEA, SnowPeaEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
         FabricDefaultAttributeRegistry.register(ModEntities.CHERRY_BOMB, CherryBombEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 1000.0f));
-        FabricDefaultAttributeRegistry.register(ModEntities.POTATO_MINE, CherryBombEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
+        FabricDefaultAttributeRegistry.register(ModEntities.POTATO_MINE, PotatoMineEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
+        FabricDefaultAttributeRegistry.register(ModEntities.WALL_NUT, WallNutEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 265.0f));
     }
 }

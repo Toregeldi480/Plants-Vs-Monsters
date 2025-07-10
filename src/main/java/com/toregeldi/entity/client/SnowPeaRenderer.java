@@ -1,7 +1,6 @@
 package com.toregeldi.entity.client;
 
 import com.toregeldi.PlantsVsMonsters;
-import com.toregeldi.entity.custom.RepeaterEntity;
 import com.toregeldi.entity.custom.SnowPeaEntity;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;

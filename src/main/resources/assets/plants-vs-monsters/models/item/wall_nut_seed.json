@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "plants-vs-monsters:item/wall_nut_seed"
+  }
+}

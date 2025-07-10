@@ -26,6 +26,7 @@ public class PlantsVsMonstersClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SNOW_PEA_BULLET, SnowPeaBulletRenderer::new);
         EntityRendererRegistry.register(ModEntities.CHERRY_BOMB, CherryBombRenderer::new);
         EntityRendererRegistry.register(ModEntities.POTATO_MINE, PotatoMineRenderer::new);
+        EntityRendererRegistry.register(ModEntities.WALL_NUT, WallNutRenderer::new);
         EntityRendererRegistry.register(ModEntities.SUN_ORB, SunOrbRenderer::new);
 
         EntityModelLayerRegistry.registerModelLayer(PeashooterModel.PEASHOOTER, PeashooterModel::getTexturedModelData);
@@ -34,6 +35,7 @@ public class PlantsVsMonstersClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(PeaBulletModel.PEA_BULLET, PeaBulletModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(CherryBombModel.CHERRY_BOMB, CherryBombModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(PotatoMineModel.POTATO_MINE, PotatoMineModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(WallNutModel.WALL_NUT, WallNutModel::getTexturedModelData);
 
         HudRenderCallback.EVENT.register(new PlayerSunGUI());
         ClientPlayNetworking.registerGlobalReceiver(SunValuePayload.ID, ((payload, context) ->
