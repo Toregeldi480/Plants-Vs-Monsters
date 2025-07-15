@@ -22,20 +22,24 @@ public class PlantsVsMonstersClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.PEASHOOTER, PeashooterRenderer::new);
         EntityRendererRegistry.register(ModEntities.REPEATER, RepeaterRenderer::new);
         EntityRendererRegistry.register(ModEntities.SNOW_PEA, SnowPeaRenderer::new);
-        EntityRendererRegistry.register(ModEntities.PEA_BULLET, PeaBulletRenderer::new);
-        EntityRendererRegistry.register(ModEntities.SNOW_PEA_BULLET, SnowPeaBulletRenderer::new);
         EntityRendererRegistry.register(ModEntities.CHERRY_BOMB, CherryBombRenderer::new);
         EntityRendererRegistry.register(ModEntities.POTATO_MINE, PotatoMineRenderer::new);
         EntityRendererRegistry.register(ModEntities.WALL_NUT, WallNutRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SUNFLOWER, SunflowerRenderer::new);
+
+        EntityRendererRegistry.register(ModEntities.PEA_BULLET, PeaBulletRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SNOW_PEA_BULLET, SnowPeaBulletRenderer::new);
         EntityRendererRegistry.register(ModEntities.SUN_ORB, SunOrbRenderer::new);
 
         EntityModelLayerRegistry.registerModelLayer(PeashooterModel.PEASHOOTER, PeashooterModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(RepeaterModel.REPEATER, RepeaterModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(SnowPeaModel.SNOW_PEA, SnowPeaModel::getTexturedModelData);
-        EntityModelLayerRegistry.registerModelLayer(PeaBulletModel.PEA_BULLET, PeaBulletModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(CherryBombModel.CHERRY_BOMB, CherryBombModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(PotatoMineModel.POTATO_MINE, PotatoMineModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(WallNutModel.WALL_NUT, WallNutModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(SunflowerModel.SUNFLOWER, SunflowerModel::getTexturedModelData);
+
+        EntityModelLayerRegistry.registerModelLayer(PeaBulletModel.PEA_BULLET, PeaBulletModel::getTexturedModelData);
 
         HudRenderCallback.EVENT.register(new PlayerSunGUI());
         ClientPlayNetworking.registerGlobalReceiver(SunValuePayload.ID, ((payload, context) ->

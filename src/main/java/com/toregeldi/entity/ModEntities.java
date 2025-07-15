@@ -31,18 +31,6 @@ public class ModEntities {
             EntityType.Builder.create(SnowPeaEntity::new, SpawnGroup.CREATURE)
                     .dimensions(1.0f, 1.4f).build("snow_pea")
     );
-    public static final EntityType<PeaBulletEntity> PEA_BULLET = Registry.register(
-            Registries.ENTITY_TYPE,
-            Identifier.of(PlantsVsMonsters.MOD_ID, "pea_bullet"),
-            EntityType.Builder.<PeaBulletEntity>create(PeaBulletEntity::new, SpawnGroup.MISC)
-                    .dimensions(0.1f, 0.1f).build("pea_bullet")
-    );
-    public static final EntityType<SnowPeaBulletEntity> SNOW_PEA_BULLET = Registry.register(
-            Registries.ENTITY_TYPE,
-            Identifier.of(PlantsVsMonsters.MOD_ID, "snow_pea_bullet"),
-            EntityType.Builder.<SnowPeaBulletEntity>create(SnowPeaBulletEntity::new, SpawnGroup.MISC)
-                    .dimensions(0.1f, 0.1f).build("snow_pea_bullet")
-    );
     public static final EntityType<CherryBombEntity> CHERRY_BOMB = Registry.register(
             Registries.ENTITY_TYPE,
             Identifier.of(PlantsVsMonsters.MOD_ID, "cherry_bomb"),
@@ -59,7 +47,27 @@ public class ModEntities {
             Registries.ENTITY_TYPE,
             Identifier.of(PlantsVsMonsters.MOD_ID, "wall_nut"),
             EntityType.Builder.create(WallNutEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(1.0f, 1.1f).build("wall_nut")
+                    .dimensions(1.0f, 1.2f).build("wall_nut")
+    );
+    public static final EntityType<SunflowerEntity> SUNFLOWER = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(PlantsVsMonsters.MOD_ID, "sunflower"),
+            EntityType.Builder.create(SunflowerEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(1.0f, 1.2f).build("sunflower")
+    );
+
+
+    public static final EntityType<PeaBulletEntity> PEA_BULLET = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(PlantsVsMonsters.MOD_ID, "pea_bullet"),
+            EntityType.Builder.<PeaBulletEntity>create(PeaBulletEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.1f, 0.1f).build("pea_bullet")
+    );
+    public static final EntityType<SnowPeaBulletEntity> SNOW_PEA_BULLET = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(PlantsVsMonsters.MOD_ID, "snow_pea_bullet"),
+            EntityType.Builder.<SnowPeaBulletEntity>create(SnowPeaBulletEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.1f, 0.1f).build("snow_pea_bullet")
     );
     public static final EntityType<SunOrbEntity> SUN_ORB = Registry.register(
             Registries.ENTITY_TYPE,
@@ -76,5 +84,6 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(ModEntities.CHERRY_BOMB, CherryBombEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 1000.0f));
         FabricDefaultAttributeRegistry.register(ModEntities.POTATO_MINE, PotatoMineEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
         FabricDefaultAttributeRegistry.register(ModEntities.WALL_NUT, WallNutEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 265.0f));
+        FabricDefaultAttributeRegistry.register(ModEntities.SUNFLOWER, SunflowerEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
     }
 }

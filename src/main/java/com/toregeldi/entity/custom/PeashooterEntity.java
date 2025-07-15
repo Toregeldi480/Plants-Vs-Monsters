@@ -41,7 +41,7 @@ public class PeashooterEntity extends PlantEntity implements RangedAttackMob {
         double e = target.getX() - this.getX();
         double g = target.getZ() - this.getZ();
         bullet.setVelocity(e, d, g, 1.0f, 0);
-        this.playSound(SoundEvents.ENTITY_SNOW_GOLEM_SHOOT, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
+        this.playSound(SoundEvents.ENTITY_SNOW_GOLEM_SHOOT, 1.0f, 0.4f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         this.getWorld().spawnEntity(bullet);
     }
 }
