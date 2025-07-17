@@ -39,6 +39,16 @@ public class ModItems {
             Identifier.of(PlantsVsMonsters.MOD_ID, "wall_nut_seed"),
             new SeedItem(ModEntities.WALL_NUT, new Item.Settings(), 600, 50)
     );
+    public static final Item SUNFLOWER_SEED = Registry.register(
+            Registries.ITEM,
+            Identifier.of(PlantsVsMonsters.MOD_ID, "sunflower_seed"),
+            new SeedItem(ModEntities.SUNFLOWER, new Item.Settings(), 150, 50)
+    );
+    public static final Item CHOMPER_SEED = Registry.register(
+            Registries.ITEM,
+            Identifier.of(PlantsVsMonsters.MOD_ID, "chomper_seed"),
+            new SeedItem(ModEntities.CHOMPER, new Item.Settings(), 150, 150)
+    );
 
     public static void registerItems() {
         PlantsVsMonsters.LOGGER.info("Registering items for " + PlantsVsMonsters.MOD_ID);

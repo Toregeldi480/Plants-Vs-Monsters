@@ -55,6 +55,12 @@ public class ModEntities {
             EntityType.Builder.create(SunflowerEntity::new, SpawnGroup.CREATURE)
                     .dimensions(1.0f, 1.2f).build("sunflower")
     );
+    public static final EntityType<ChomperEntity> CHOMPER = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(PlantsVsMonsters.MOD_ID, "chomper"),
+            EntityType.Builder.create(ChomperEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(1.0f, 1.1f).build("chomper")
+    );
 
 
     public static final EntityType<PeaBulletEntity> PEA_BULLET = Registry.register(
@@ -85,5 +91,6 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(ModEntities.POTATO_MINE, PotatoMineEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
         FabricDefaultAttributeRegistry.register(ModEntities.WALL_NUT, WallNutEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 265.0f));
         FabricDefaultAttributeRegistry.register(ModEntities.SUNFLOWER, SunflowerEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
+        FabricDefaultAttributeRegistry.register(ModEntities.CHOMPER, ChomperEntity.createPlantAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0f));
     }
 }

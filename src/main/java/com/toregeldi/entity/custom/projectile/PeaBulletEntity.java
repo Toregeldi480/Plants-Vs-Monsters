@@ -45,7 +45,7 @@ public class PeaBulletEntity extends SnowballEntity {
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
-        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), 3.0f);
+        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), 4.0f);
         super.onEntityHit(entityHitResult);
     }
 

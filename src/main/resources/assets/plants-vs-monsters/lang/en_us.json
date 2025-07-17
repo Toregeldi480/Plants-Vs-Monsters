@@ -5,6 +5,8 @@
   "item.plants-vs-monsters.cherry_bomb_seed": "Cherry Bomb Seed",
   "item.plants-vs-monsters.potato_mine_seed": "Potato Mine Seed",
   "item.plants-vs-monsters.wall_nut_seed": "Wall Nut Seed",
+  "item.plants-vs-monsters.sunflower_seed": "Sunflower Seed",
+  "item.plants-vs-monsters.chomper_seed": "Chomper Seed",
 
   "entity.plants-vs-monsters.peashooter": "Peashooter",
   "entity.plants-vs-monsters.repeater": "Repeater",
@@ -12,6 +14,9 @@
   "entity.plants-vs-monsters.cherry_bomb": "Cherry Bomb",
   "entity.plants-vs-monsters.potato_mine": "Potato Mine",
   "entity.plants-vs-monsters.wall_nut": "Wall Nut",
+  "entity.plants-vs-monsters.sunflower": "Sunflower",
+  "entity.plants-vs-monsters.chomper": "Chomper",
+
   "entity.plants-vs-monsters.sun_orb": "Sun Orb",
 
   "entity.plants-vs-monsters.pea_bullet": "Pea Bullet",

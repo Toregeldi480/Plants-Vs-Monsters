@@ -8,12 +8,12 @@ import net.minecraft.util.math.MathHelper;
 import java.util.EnumSet;
 
 public class ShootPeaGoal extends Goal {
-    private PeashooterEntity mob;
+    private final PeashooterEntity mob;
     private int peasFired;
-    private int peasCount;
-    private int peaCooldown;
+    private final int peasCount;
+    private final int peaCooldown;
     private int fireCooldown;
-    private float maxShootRange;
+    private final float maxShootRange;
 
     public ShootPeaGoal(PeashooterEntity mob, int peasCount, int peaCooldown, int fireCooldown, float maxShootRange) {
         this.mob = mob;

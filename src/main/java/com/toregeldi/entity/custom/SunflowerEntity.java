@@ -19,10 +19,7 @@ public class SunflowerEntity extends PlantEntity implements SunProducerMob {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1, new ProduceSunGoal(this, 400));
-        this.goalSelector.add(2, new LookAtEntityGoal(this, HostileEntity.class, 20.0f));
-        this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 20.0f));
-        this.goalSelector.add(4, new LookAroundGoal(this));
+        this.goalSelector.add(1, new ProduceSunGoal(this, 485 ));
         super.initGoals();
     }
 

@@ -2,13 +2,10 @@ package com.toregeldi.entity.custom;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.LookAroundGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
@@ -18,13 +15,6 @@ import net.minecraft.world.explosion.Explosion;
 
 public class PotatoMineEntity extends PlantEntity implements ExplodeableMob{
     private static final TrackedData<Boolean> READY_TO_EXPLODE = DataTracker.registerData(PotatoMineEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-
-    @Override
-    protected void initGoals() {
-        this.goalSelector.add(1, new LookAtEntityGoal(this, HostileEntity.class, 10.0f, 100.0f, true));
-        this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 10.0f, 100.0f, true));
-        this.goalSelector.add(3, new LookAroundGoal(this));
-    }
 
     @Override
     protected void initDataTracker(DataTracker.Builder builder) {

@@ -4,14 +4,13 @@ import com.toregeldi.entity.custom.SunProducerMob;
 import net.minecraft.entity.ai.goal.Goal;
 
 public class ProduceSunGoal extends Goal {
-    private SunProducerMob mob;
-    private int cooldown;
+    private final SunProducerMob mob;
+    private final int cooldown;
     private int sunCooldown;
 
     public ProduceSunGoal(SunProducerMob mob, int cooldown) {
        this.mob = mob;
        this.cooldown = cooldown;
-       this.sunCooldown = cooldown;
     }
 
     @Override
@@ -29,7 +28,7 @@ public class ProduceSunGoal extends Goal {
         --this.sunCooldown;
         if(this.sunCooldown <= 0) {
             this.mob.produceSun();
-            this.sunCooldown = this.cooldown;
+            this.sunCooldown = cooldown;
         }
 
         super.tick();

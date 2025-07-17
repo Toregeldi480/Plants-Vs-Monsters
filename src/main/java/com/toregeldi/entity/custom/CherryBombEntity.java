@@ -3,8 +3,6 @@ package com.toregeldi.entity.custom;
 import com.toregeldi.entity.ai.goal.TimedExplosionGoal;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -18,7 +16,7 @@ public class CherryBombEntity extends PlantEntity implements ExplodeableMob {
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new TimedExplosionGoal(this, 30));
-        this.goalSelector.add(2, new LookAtEntityGoal(this, HostileEntity.class, 20.0f));
+        super.initGoals();
     }
 
     @Override
