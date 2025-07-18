@@ -2,11 +2,7 @@ package com.toregeldi.entity.custom;
 
 import com.toregeldi.entity.ai.goal.ProduceSunGoal;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.LookAroundGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.GolemEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 

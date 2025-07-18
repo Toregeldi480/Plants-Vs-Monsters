@@ -88,50 +88,50 @@ public class ChomperModel extends EntityModel<ChomperEntity> {
 		ModelPartData cube_r18 = upper.addChild("cube_r18", ModelPartBuilder.create().uv(7, 42).cuboid(-4.0F, 0.7F, -7.4F, 8.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(-0.2F, -1.7F, -1.1F, -0.0262F, 0.0F, 0.0F));
 
 		ModelPartData cube_r19 = upper.addChild("cube_r19", ModelPartBuilder.create().uv(7, 42).cuboid(-0.8F, 0.7F, 3.2F, 8.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(7, 42).cuboid(-0.8F, 0.7F, -4.2F, 8.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(-0.2F, -1.7F, -1.1F, -1.5708F, 1.5446F, -1.5708F));
+				.uv(7, 42).cuboid(-0.8F, 0.7F, -4.2F, 8.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(-0.2F, -1.7F, -1.1F, -1.5708F, 1.5446F, -1.5708F));
 
 		ModelPartData upper_teeth = upper.addChild("upper_teeth", ModelPartBuilder.create().uv(0, 6).cuboid(-3.4F, -13.3F, -6.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-3.4F, -13.3F, -5.6F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-3.4F, -13.3F, -4.5F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-3.4F, -13.3F, -3.4F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-0.1F, -13.3F, -6.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-1.2F, -13.3F, -6.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(2.1F, -13.3F, -6.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(2.1F, -13.3F, -3.4F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(2.1F, -13.3F, -4.5F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(2.1F, -13.3F, -5.6F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(1.0F, -13.3F, -6.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-2.3F, -13.3F, -6.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 12.3F, -0.8F));
+				.uv(0, 6).cuboid(-3.4F, -13.3F, -5.6F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-3.4F, -13.3F, -4.5F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-3.4F, -13.3F, -3.4F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-0.1F, -13.3F, -6.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-1.2F, -13.3F, -6.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(2.1F, -13.3F, -6.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(2.1F, -13.3F, -3.4F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(2.1F, -13.3F, -4.5F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(2.1F, -13.3F, -5.6F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(1.0F, -13.3F, -6.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-2.3F, -13.3F, -6.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 12.3F, -0.8F));
 
 		ModelPartData hair = upper.addChild("hair", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		ModelPartData cube_r20 = hair.addChild("cube_r20", ModelPartBuilder.create().uv(24, 0).cuboid(-0.7F, -5.2F, -7.3F, 1.0F, 2.0F, 1.0F, new Dilation(0.0F))
-		.uv(24, 0).cuboid(-0.7F, -5.2F, -5.6F, 1.0F, 2.0F, 1.0F, new Dilation(0.0F))
-		.uv(24, 0).cuboid(-0.7F, -5.2F, -3.9F, 1.0F, 2.0F, 1.0F, new Dilation(0.0F))
-		.uv(24, 0).cuboid(-0.7F, -5.2F, -2.2F, 1.0F, 2.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.0524F, 0.0F, 0.0F));
+				.uv(24, 0).cuboid(-0.7F, -5.2F, -5.6F, 1.0F, 2.0F, 1.0F, new Dilation(0.0F))
+				.uv(24, 0).cuboid(-0.7F, -5.2F, -3.9F, 1.0F, 2.0F, 1.0F, new Dilation(0.0F))
+				.uv(24, 0).cuboid(-0.7F, -5.2F, -2.2F, 1.0F, 2.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.0524F, 0.0F, 0.0F));
 
 		ModelPartData lower = head.addChild("lower", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		ModelPartData cube_r21 = lower.addChild("cube_r21", ModelPartBuilder.create().uv(7, 42).cuboid(-0.8F, 0.7F, 3.2F, 8.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(7, 42).cuboid(-0.8F, 0.7F, -4.2F, 8.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(-0.2F, -13.0F, -0.5F, 1.5708F, 1.2654F, 1.5708F));
+				.uv(7, 42).cuboid(-0.8F, 0.7F, -4.2F, 8.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(-0.2F, -13.0F, -0.5F, 1.5708F, 1.2654F, 1.5708F));
 
 		ModelPartData cube_r22 = lower.addChild("cube_r22", ModelPartBuilder.create().uv(7, 42).cuboid(-4.0F, 0.7F, -7.4F, 8.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 12).cuboid(-4.0F, 1.0F, -7.0F, 8.0F, 2.0F, 8.0F, new Dilation(0.0F)), ModelTransform.of(-0.2F, -13.0F, -0.5F, 0.3054F, 0.0F, 0.0F));
+				.uv(0, 12).cuboid(-4.0F, 1.0F, -7.0F, 8.0F, 2.0F, 8.0F, new Dilation(0.0F)), ModelTransform.of(-0.2F, -13.0F, -0.5F, 0.3054F, 0.0F, 0.0F));
 
 		ModelPartData lower_teeth = lower.addChild("lower_teeth", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -10.0F, -7.0F));
 
 		ModelPartData cube_r23 = lower_teeth.addChild("cube_r23", ModelPartBuilder.create().uv(0, 6).cuboid(2.1F, -1.0F, 1.8F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(2.1F, -1.0F, 2.9F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(2.1F, -1.0F, 4.0F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(2.1F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(1.0F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-0.1F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-1.2F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-2.3F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-3.4F, -1.0F, 1.8F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-3.4F, -1.0F, 2.9F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-3.4F, -1.0F, 4.0F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 6).cuboid(-3.4F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.2618F, 0.0F, 0.0F));
+				.uv(0, 6).cuboid(2.1F, -1.0F, 2.9F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(2.1F, -1.0F, 4.0F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(2.1F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(1.0F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-0.1F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-1.2F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-2.3F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-3.4F, -1.0F, 1.8F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-3.4F, -1.0F, 2.9F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-3.4F, -1.0F, 4.0F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(0, 6).cuboid(-3.4F, -1.0F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.2618F, 0.0F, 0.0F));
 
 		ModelPartData tonque = head.addChild("tonque", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, -8.0F));
 
@@ -150,11 +150,12 @@ public class ChomperModel extends EntityModel<ChomperEntity> {
 		ModelPartData cube_r28 = node_1.addChild("cube_r28", ModelPartBuilder.create().uv(40, 0).cuboid(0.8F, -3.9F, 0.9F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(-1.9F, -11.3F, 1.9F, -0.0818F, -1.4867F, 1.6385F));
 
 		ModelPartData cube_r29 = node_1.addChild("cube_r29", ModelPartBuilder.create().uv(40, 0).cuboid(0.7F, -0.4F, 0.7F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(40, 0).cuboid(-1.3F, -0.9F, 0.6F, 2.0F, 2.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(-1.9F, -11.3F, 1.9F, -0.5507F, -1.321F, 2.1107F));
+				.uv(40, 0).cuboid(-1.3F, -0.9F, 0.6F, 2.0F, 2.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(-1.9F, -11.3F, 1.9F, -0.5507F, -1.321F, 2.1107F));
 
 		ModelPartData cube_r30 = node_1.addChild("cube_r30", ModelPartBuilder.create().uv(40, 0).cuboid(-1.1F, -0.9F, 1.0F, 2.0F, 2.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(1.6F, -11.3F, 1.9F, 0.3217F, -1.482F, 1.2365F));
 		return TexturedModelData.of(modelData, 64, 64);
 	}
+
 	@Override
 	public void setAngles(ChomperEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 	}

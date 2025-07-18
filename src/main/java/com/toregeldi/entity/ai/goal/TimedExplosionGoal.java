@@ -1,6 +1,7 @@
 package com.toregeldi.entity.ai.goal;
 
 import com.toregeldi.entity.custom.ExplodeableMob;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
 
 public class TimedExplosionGoal extends Goal {
@@ -24,11 +25,9 @@ public class TimedExplosionGoal extends Goal {
 
     @Override
     public void tick() {
-        if(this.timer <= 0) {
+        if(this.timer <= ((LivingEntity)mob).age) {
             this.mob.explode();
         }
-
-        --this.timer;
 
         super.tick();
     }

@@ -11,6 +11,7 @@ public class ProduceSunGoal extends Goal {
     public ProduceSunGoal(SunProducerMob mob, int cooldown) {
        this.mob = mob;
        this.cooldown = cooldown;
+       this.sunCooldown = cooldown;
     }
 
     @Override

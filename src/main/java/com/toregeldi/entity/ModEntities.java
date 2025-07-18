@@ -47,7 +47,7 @@ public class ModEntities {
             Registries.ENTITY_TYPE,
             Identifier.of(PlantsVsMonsters.MOD_ID, "wall_nut"),
             EntityType.Builder.create(WallNutEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(1.0f, 1.2f).build("wall_nut")
+                    .dimensions(1.0f, 1.4f).build("wall_nut")
     );
     public static final EntityType<SunflowerEntity> SUNFLOWER = Registry.register(
             Registries.ENTITY_TYPE,
