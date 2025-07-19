@@ -4,6 +4,7 @@ import com.toregeldi.entity.ai.goal.PlantRevengeGoal;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.Tameable;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -13,6 +14,8 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.passive.GolemEntity;
+import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShovelItem;
@@ -52,7 +55,7 @@ public abstract class PlantEntity extends GolemEntity implements Angerable {
         this.goalSelector.add(3, new LookAtEntityGoal(this, PlantEntity.class, 20.0f));
         this.goalSelector.add(4, new LookAroundGoal(this));
 
-        this.targetSelector.add(1, (new PlantRevengeGoal(this)).setGroupRevenge());
+        this.targetSelector.add(1, (new PlantRevengeGoal(this)).setGroupRevenge(new Class[0]));
         this.targetSelector.add(2, new ActiveTargetGoal(this, MobEntity.class, 0, true, false, (entity) -> entity instanceof Monster));
         this.targetSelector.add(3, new UniversalAngerGoal(this, true));
     }

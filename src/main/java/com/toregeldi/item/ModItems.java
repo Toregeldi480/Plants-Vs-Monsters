@@ -3,6 +3,7 @@ package com.toregeldi.item;
 import com.toregeldi.PlantsVsMonsters;
 import com.toregeldi.entity.ModEntities;
 import com.toregeldi.item.custom.SeedItem;
+import com.toregeldi.item.custom.UpgradeSeedItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -48,6 +49,12 @@ public class ModItems {
             Registries.ITEM,
             Identifier.of(PlantsVsMonsters.MOD_ID, "chomper_seed"),
             new SeedItem(ModEntities.CHOMPER, new Item.Settings(), 150, 150)
+    );
+
+    public static final Item GATLING_PEA_SEED = Registry.register(
+            Registries.ITEM,
+            Identifier.of(PlantsVsMonsters.MOD_ID, "gatling_pea_seed"),
+            new UpgradeSeedItem(ModEntities.REPEATER, new Item.Settings(), 30, 200)
     );
 
     public static void registerItems() {

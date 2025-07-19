@@ -21,13 +21,11 @@ public class PlantRevengeGoal extends RevengeGoal {
     }
 
     public boolean shouldContinue() {
-        return mob.hasAngerTime() && super.shouldContinue();
+        return super.shouldContinue();
     }
 
     protected void setMobEntityTarget(MobEntity mob, LivingEntity target) {
-        if (mob instanceof PlantEntity) {
-            mob.setTarget(target);
-        }
+        mob.setTarget(target);
     }
 
     @Override
@@ -45,7 +43,7 @@ public class PlantRevengeGoal extends RevengeGoal {
                 }
 
                 mobEntity = (MobEntity)var5.next();
-                if (this.mob != mobEntity && mobEntity.getTarget() == null && !mobEntity.isTeammate(this.mob.getAttacker())) {
+                if (this.mob != mobEntity && mobEntity.getTarget() == null) {
                     if (this.noHelpTypes == null) {
                         break;
                     }

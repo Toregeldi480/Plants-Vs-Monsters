@@ -2,10 +2,8 @@ package com.toregeldi.entity.client;
 
 import com.toregeldi.PlantsVsMonsters;
 import com.toregeldi.entity.custom.PotatoMineEntity;
-import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class PotatoMineRenderer extends MobEntityRenderer<PotatoMineEntity, PotatoMineModel> {

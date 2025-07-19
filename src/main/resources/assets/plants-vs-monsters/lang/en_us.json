@@ -7,6 +7,7 @@
   "item.plants-vs-monsters.wall_nut_seed": "Wall Nut Seed",
   "item.plants-vs-monsters.sunflower_seed": "Sunflower Seed",
   "item.plants-vs-monsters.chomper_seed": "Chomper Seed",
+  "item.plants-vs-monsters.gatling_pea_seed": "Gatling Pea Seed",
 
   "entity.plants-vs-monsters.peashooter": "Peashooter",
   "entity.plants-vs-monsters.repeater": "Repeater",
@@ -16,6 +17,7 @@
   "entity.plants-vs-monsters.wall_nut": "Wall Nut",
   "entity.plants-vs-monsters.sunflower": "Sunflower",
   "entity.plants-vs-monsters.chomper": "Chomper",
+  "entity.plants-vs-monsters.gatling_pea": "Gatling Pea",
 
   "entity.plants-vs-monsters.sun_orb": "Sun Orb",
 

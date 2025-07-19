@@ -1,6 +1,8 @@
 package com.toregeldi.entity.ai.goal;
 
 import com.toregeldi.entity.custom.PeashooterEntity;
+import com.toregeldi.entity.custom.RepeaterEntity;
+import com.toregeldi.entity.custom.UpgradablePlant;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.util.math.MathHelper;
@@ -10,9 +12,9 @@ import java.util.EnumSet;
 public class ShootPeaGoal extends Goal {
     private final PeashooterEntity mob;
     private int peasFired;
-    private final int peasCount;
-    private final int peaCooldown;
+    private int peasCount;
     private int fireCooldown;
+    private final int peaCooldown;
     private final float maxShootRange;
 
     public ShootPeaGoal(PeashooterEntity mob, int peasCount, int peaCooldown, int fireCooldown, float maxShootRange) {
@@ -44,6 +46,11 @@ public class ShootPeaGoal extends Goal {
     public void tick() {
         --this.fireCooldown;
         LivingEntity livingEntity = this.mob.getTarget();
+        if(this.mob instanceof RepeaterEntity) {
+            if(((UpgradablePlant)this.mob).isUpgraded()) {
+                this.peasCount = 4;
+            }
+        }
         if(livingEntity != null) {
             boolean bl  = this.mob.getVisibilityCache().canSee(livingEntity);
 

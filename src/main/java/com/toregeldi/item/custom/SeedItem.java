@@ -43,7 +43,6 @@ public class SeedItem extends SpawnEggItem {
             return ActionResult.SUCCESS;
         } else {
             ItemStack itemStack = context.getStack();
-            Direction direction = context.getSide();
             BlockPos blockPos = context.getBlockPos();
             PlayerEntity player = context.getPlayer();
             BlockState blockState = world.getBlockState(blockPos);
